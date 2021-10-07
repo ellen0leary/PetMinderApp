@@ -3,7 +3,7 @@ package org.wit.petMinder.console.main
 import mu.KotlinLogging
 
 
-
-class main {
-
+private val logger = KotlinLogging.logger {}
+fun main(args: Array<String>) {
+ logger.info{"Launching PetMinder Console"}
 }
