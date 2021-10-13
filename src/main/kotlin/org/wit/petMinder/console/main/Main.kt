@@ -5,6 +5,7 @@ import org.wit.petMinder.console.models.PetModel
 import java.awt.SystemColor.menu
 
 var pet = PetModel()
+val pets = ArrayList<PetModel>()
 private val logger = KotlinLogging.logger {}
 fun main(args: Array<String>) {
  logger.info{"Launching PetMinder Console"}
@@ -16,7 +17,8 @@ fun main(args: Array<String>) {
   when(input){
    1 -> addPet()
    2-> updatePet()
-   -1 -> listPets()
+   3-> listPets()
+   -1 -> println("Exiting App")
    else -> println("Invalid Option")
   }
  } while (input!= -1)
@@ -52,6 +54,7 @@ fun addPet(){
  println("Enter date of birth")
  pet.dob = readLine()!!
  println("You enterec ["+ pet.name +"]for name and ["+pet.dob+"] for date of birth")
+ pets.add(pet.copy())
 
 }
 
@@ -67,5 +70,7 @@ fun updatePet(){
 }
 
 fun listPets(){
- println("you choose list all pets")
+ println("List All Placemarks")
+ println()
+ pets.forEach{logger.info("${it}")}
 }
