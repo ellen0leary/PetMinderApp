@@ -1,9 +1,10 @@
 package org.wit.petMinder.console.main
 
 import mu.KotlinLogging
+import org.wit.petMinder.console.models.PetModel
 import java.awt.SystemColor.menu
 
-var name = ""
+var pet = PetModel()
 private val logger = KotlinLogging.logger {}
 fun main(args: Array<String>) {
  logger.info{"Launching PetMinder Console"}
@@ -46,17 +47,23 @@ fun addPet(){
  println("Add Placemark")
  println()
  println("Enter a Name: ")
- name = readLine()!!
- println("You enter $name for name")
+ pet.name = readLine()!!
+
+ println("Enter date of birth")
+ pet.dob = readLine()!!
+ println("You enterec ["+ pet.name +"]for name and ["+pet.dob+"] for date of birth")
 
 }
 
 fun updatePet(){
- println("Update Pet")
+ println("Update Placemark")
  println()
- println("Enter a new Name: ")
- name = readLine()!!
- println("You entered $name for the new name")
+ println("Enter a new Name for "+ pet.name+": ")
+ pet.name = readLine()!!
+
+ println("Enter a new date of birth for "+pet.name+": " )
+ pet.dob = readLine()!!
+ println("You enterec ["+ pet.name +"]for name and ["+pet.dob+"] for date of birth")
 }
 
 fun listPets(){
