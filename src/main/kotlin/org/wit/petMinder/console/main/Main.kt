@@ -3,7 +3,7 @@ package org.wit.petMinder.console.main
 import mu.KotlinLogging
 import java.awt.SystemColor.menu
 
-
+var name = ""
 private val logger = KotlinLogging.logger {}
 fun main(args: Array<String>) {
  logger.info{"Launching PetMinder Console"}
@@ -13,9 +13,10 @@ fun main(args: Array<String>) {
  do {
   input = menu()
   when(input){
-   1 -> println("You chose Add Pet")
-   -1 -> println("Exiting App")
-   else -> println("Invalud Option")
+   1 -> addPet()
+   2-> updatePet()
+   -1 -> listPets()
+   else -> println("Invalid Option")
   }
  } while (input!= -1)
  logger.info{"Shutting Down Petminder Console App"}
@@ -42,13 +43,22 @@ fun menu() : Int {
 }
 
 fun addPet(){
+ println("Add Placemark")
+ println()
+ println("Enter a Name: ")
+ name = readLine()!!
+ println("You enter $name for name")
 
 }
 
 fun updatePet(){
-
+ println("Update Pet")
+ println()
+ println("Enter a new Name: ")
+ name = readLine()!!
+ println("You entered $name for the new name")
 }
 
 fun listPets(){
- 
+ println("you choose list all pets")
 }
