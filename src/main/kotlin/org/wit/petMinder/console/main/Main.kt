@@ -4,9 +4,11 @@ import jdk.nashorn.internal.runtime.JSType.toLong
 import mu.KotlinLogging
 import org.wit.petMinder.console.models.PetMemStore
 import org.wit.petMinder.console.models.PetModel
+import org.wit.petMinder.console.views.PetView
 import java.awt.SystemColor.menu
 
 val pets = PetMemStore()
+val petView = PetView()
 private val logger = KotlinLogging.logger {}
 fun main(args: Array<String>) {
     logger.info { "Launching PetMinder Console" }
@@ -18,7 +20,7 @@ fun main(args: Array<String>) {
         when (input) {
             1 -> addPet()
             2 -> updatePet()
-            3 -> listPets()
+            3 -> petView.listPets(pets)
             4 -> searchPet()
             -1 -> println("Exiting App")
             else -> println("Invalid Option")
@@ -49,84 +51,65 @@ fun menu(): Int {
 
 fun addPet() {
     var aPet = PetModel()
-    println("Add Placemark")
-    println()
-    println("Enter a Name: ")
-    aPet.name = readLine()!!
 
-    println("Enter date of birth")
-    aPet.dob = readLine()!!
-   if(aPet.name.isNotEmpty() && aPet.dob.isNotEmpty()) {
-       aPet.id = pets.pets.size.toLong()
-       pets.create(aPet.copy())
-       logger.info{"Placemark Added : [ $aPet ]"}
-   } else {
-       logger.info("Placemark Not Added")
-   }
+    if(petView.addPetData(aPet))
+        pets.create(aPet)
+    else
+        logger.info{"Pet Not Added"}
 }
 
 fun updatePet() {
-    println("Update Placemark")
-    println()
-    listPets()
-    var searckId = getId()
-    val aPet = search(searckId)
-    var tempName : String?
-    var tempDOB : String?
+//    println("Update Placemark")
+//    println()
+//    listPets()
+//    var searckId = getId()
+//    val aPet = search(searckId)
+//    var tempName : String?
+//    var tempDOB : String?
+//
+//    if(aPet!= null){
+//        print("emter a new name for ["+ aPet.name+"")
+//        tempName = readLine()!!
+//        println("Enter a new Description for [ "+aPet.dob+"")
+//        tempDOB= readLine()!!
+//
+//        if(!tempName.isNullOrEmpty() && !tempDOB.isNullOrEmpty()){
+//            aPet.name = tempName
+//            aPet.dob = tempDOB
+//            println(
+//                "You updated [" + aPet.name + " ] for name  " +
+//                        "and ["  + aPet.dob +"  ] for Date of Birth" )
+//            logger.info{"Pet updated: [ $aPet ]"}
+//        }else {
+//            logger.info{"Pet Not Updated"}
+//        }
+//    } else {
+//        println("Pet Not Updated....")
+//    }
 
-    if(aPet!= null){
-        print("emter a new name for ["+ aPet.name+"")
-        tempName = readLine()!!
-        println("Enter a new Description for [ "+aPet.dob+"")
-        tempDOB= readLine()!!
+    petView.listPets(pets)
+    var searchId = petView.getId()
+    val aPet = search(searchId)
 
-        if(!tempName.isNullOrEmpty() && !tempDOB.isNullOrEmpty()){
-            aPet.name = tempName
-            aPet.dob = tempDOB
-            println(
-                "You updated [" + aPet.name + " ] for name  " +
-                        "and ["  + aPet.dob +"  ] for Date of Birth" )
-            logger.info{"Pet updated: [ $aPet ]"}
-        }else {
-            logger.info{"Pet Not Updated"}
-        }
-    } else {
+    if(aPet != null)
+        if(petView.updatePetData(aPet)){
+            pets.update(aPet)
+            petView.showPet(aPet)
+            logger.info{"Pet Updated: [ $aPet ]"}
+        }else
+            logger.info{"Pet not updated"}
+    else
         println("Pet Not Updated....")
-    }
-}
-
-fun listPets() {
-    println("List All Placemarks")
-    println()
-    pets.logAll()
-    println()
 }
 
 fun searchPet() {
-    var searchId = getId()
-    val aPet = search(searchId)
-    if (aPet != null)
-        println("Pet Details [ $aPet]")
-    else
-        println("Pet not found")
+   val aPet = search(petView.getId())!!
+    petView.showPet(aPet)
 
-}
-
-fun getId(): Long {
-    var strID: String?
-    var searchId: Long
-    print("Enter id to Search/Update: ")
-    strID = readLine()!!
-    searchId = if (strID.toLongOrNull() != null && !strID.isEmpty())
-        strID.toLong()
-    else
-        -9
-
-    return searchId
 }
 
 fun search(id: Long): PetModel? {
-    var foundPet: PetModel? = pets.findOne(id) 
+    var foundPet: PetModel? = pets.findOne(id)
     return foundPet
 }
 
