@@ -1,8 +1,6 @@
 package org.wit.petMinder.console.controllers
 
 import mu.KotlinLogging
-import org.wit.petMinder.console.main.petView
-import org.wit.petMinder.console.main.pets
 import org.wit.petMinder.console.models.PetMemStore
 import org.wit.petMinder.console.models.PetModel
 import org.wit.petMinder.console.views.PetView
@@ -82,8 +80,8 @@ class PetController {
     }
 
     fun dummyData() {
-        pets.create(PetModel(name = "Fluffy", dob = "Yesterday"))
-        pets.create(PetModel(name= "Apollo", dob = "2 weeks ago"))
-        pets.create(PetModel(name = "Milo", dob = "2 months ags"))
+        pets.create(PetModel(name = "Fluffy", age = 10, weight=3.5f))
+        pets.create(PetModel(name= "Apollo", age = 4, weight = 2.5f))
+        pets.create(PetModel(name = "Milo", age = 3, weight=4f))
     }
 }

@@ -1,15 +1,11 @@
 package org.wit.petMinder.console.views
 
-
-import org.wit.petMinder.console.views.PetView
-import org.wit.petMinder.console.main.pets
 import org.wit.petMinder.console.models.PetMemStore
 import org.wit.petMinder.console.models.PetModel
 
 class PetView {
 
     fun menu() : Int {
-
         var option : Int
         var input: String?
 
@@ -44,30 +40,36 @@ class PetView {
     }
 
     fun addPetData(pet : PetModel) : Boolean {
-
+        pet.age = -1
         println()
         print("Enter a Name : ")
         pet.name = readLine()!!
-        print("Enter a Date of Birth : ")
-        pet.dob = readLine()!!
+        print("Enter a Age : ")
+        pet.age = readLine()!!.toInt()
+        print("Enter a weight: ")
+        pet.weight = readLine()!!.toFloat()
 
-        return pet.name.isNotEmpty() && pet.dob.isNotEmpty()
+
+        return pet.name.isNotEmpty() && (pet.age > -1)
     }
 
     fun updatePetData(pet : PetModel) : Boolean {
-
         var tempName: String?
-        var tempDOB: String?
+        var tempAge: Int?
+        var tempWeight: Float?
 
         if (pet != null) {
             print("Enter a new Title for [ " + pet.name + " ] : ")
             tempName = readLine()!!
-            print("Enter a new Description for [ " + pet.dob + " ] : ")
-            tempDOB = readLine()!!
+            print("Enter a new Description for [ " + pet.age + " ] : ")
+            tempAge = readLine()!!.toIntOrNull()
+            print("Enter a new Weight for [ "+pet.weight+ "] :")
+            tempWeight = readLine()!!.toFloat()
 
-            if (!tempName.isNullOrEmpty() && !tempDOB.isNullOrEmpty()) {
+            if (!tempName.isNullOrEmpty() && tempAge != null) {
                 pet.name = tempName
-                pet.dob = tempDOB
+                pet.age = tempAge
+                pet.weight = tempWeight
                 return true
             }
         }

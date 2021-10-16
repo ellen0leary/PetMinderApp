@@ -32,7 +32,7 @@ class PetMemStore : PetStore {
         var foundPet = findOne(pet.id!!)
         if (foundPet != null) {
             foundPet.name = pet.name
-            foundPet.dob = pet.dob
+            foundPet.age = pet.age
         }
     }
 
