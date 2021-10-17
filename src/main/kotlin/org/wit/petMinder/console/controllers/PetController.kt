@@ -28,6 +28,7 @@ class PetController {
                 2 -> update()
                 3 -> list()
                 4 -> search()
+                5 -> delete()
                 -99 -> dummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
@@ -79,6 +80,20 @@ class PetController {
     fun search(id: Long) : PetModel? {
         var foundPet = pets.findOne(id)
         return foundPet
+    }
+
+    fun delete() {
+        petView.listPets(pets)
+        var searchId = petView.getId()
+        val aPet = search(searchId)
+
+        if(aPet != null) {
+            pets.deleteOne(aPet.id)
+            println("Placemark Deleted...")
+            petView.listPets(pets)
+        }
+        else
+            println("Placemark Not Deleted...")
     }
 
     fun dummyData() {

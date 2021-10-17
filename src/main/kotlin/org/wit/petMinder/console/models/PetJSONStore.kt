@@ -53,6 +53,13 @@ class PetJSONStore : PetStore {
         serialize()
     }
 
+    override fun deleteOne(petId: Long) {
+        val foundPet = findOne(petId)
+        if(foundPet!= null){
+            pets.remove(foundPet)
+        }
+        serialize()
+    }
 
 
     internal fun logAll() {

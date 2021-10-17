@@ -1,5 +1,6 @@
 package org.wit.petMinder.console.views
 
+import org.wit.petMinder.console.models.PetJSONStore
 import org.wit.petMinder.console.models.PetMemStore
 import org.wit.petMinder.console.models.PetModel
 
@@ -14,6 +15,7 @@ class PetView {
         println(" 2. Update Pet")
         println(" 3. List All Pets")
         println(" 4. Search Pet")
+        println(" 5. Delete Pet")
         println("-1. Exit")
         println()
         print("Enter Option : ")
@@ -25,7 +27,7 @@ class PetView {
         return option
     }
 
-    fun listPets(pets : PetMemStore) {
+    fun listPets(pets : PetJSONStore) {
         println("List All Pets")
         println()
         pets.logAll()
