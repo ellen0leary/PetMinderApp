@@ -1,13 +1,15 @@
 package org.wit.petMinder.console.controllers
 
 import mu.KotlinLogging
+import org.wit.petMinder.console.models.PetJSONStore
 import org.wit.petMinder.console.models.PetMemStore
 import org.wit.petMinder.console.models.PetModel
 import org.wit.petMinder.console.views.PetView
 
 class PetController {
 
-    val pets = PetMemStore()
+//    val pets = PetMemStore()
+    val pets = PetJSONStore()
     val petView = PetView()
     val logger = KotlinLogging.logger {}
 
