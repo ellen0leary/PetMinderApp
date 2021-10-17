@@ -33,6 +33,7 @@ class PetMemStore : PetStore {
         if (foundPet != null) {
             foundPet.name = pet.name
             foundPet.age = pet.age
+            foundPet.weight = pet.weight
         }
     }
 

@@ -14,31 +14,54 @@ class ExerciseMemStore: ExerciseStore {
     var exercises = ArrayList<ExerciseModel>()
 
     override fun findAll(): List<ExerciseModel> {
-        TODO("Not yet implemented")
+        return exercises
     }
 
     override fun findByPet(petId: Long): List<ExerciseModel> {
-        TODO("Not yet implemented")
+        val list =  ArrayList<ExerciseModel>()
+        for(i in exercises){
+            if(i.petId == petId){
+                list.add(i)
+            }
+        }
+        return list
     }
 
     override fun findOne(id: Long): ExerciseModel? {
-        TODO("Not yet implemented")
+        var foundExercise : ExerciseModel? = exercises.find{p -> p.id == id}
+        return foundExercise
     }
 
     override fun create(exercise: ExerciseModel) {
-        TODO("Not yet implemented")
+        exercise.id = getExerciseId()
+        exercises.add(exercise)
+        logAll()
     }
 
     override fun update(exercise: ExerciseModel) {
-        TODO("Not yet implemented")
+        var foundExercise = findOne(exercise.id!!)
+        if(foundExercise != null) {
+            foundExercise.name = exercise.name
+            foundExercise.length = exercise.length
+        }
     }
 
     override fun deleteByPet(petId: Long) {
-        TODO("Not yet implemented")
+        for(i in exercises){
+            if(i.petId == petId){
+                var foundExercise = findOne(i.id!!)
+                if(foundExercise!= null){
+                    exercises.remove(foundExercise)
+                }
+            }
+        }
     }
 
-    override fun deleteOne(exercise: ExerciseModel) {
-        TODO("Not yet implemented")
+    override fun deleteOne(exerciseId: Long) {
+        val foundExercise = findOne(exerciseId)
+        if(foundExercise!= null){
+            exercises.remove(foundExercise)
+        }
     }
 
     internal fun logAll(){

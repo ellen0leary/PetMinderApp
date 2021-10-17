@@ -16,7 +16,13 @@ class FeedMemStore: FeedStore {
     }
 
     override fun findByPet(petId: Long): List<FeedModel> {
-        TODO("Not yet implemented")
+        val list =  ArrayList<FeedModel>()
+        for(i in feeds){
+            if(i.petId == petId){
+                list.add(i)
+            }
+        }
+        return list
     }
 
     override fun findOne(id: Long): FeedModel? {
@@ -25,7 +31,7 @@ class FeedMemStore: FeedStore {
     }
 
     override fun create(feed: FeedModel) {
-        feed.id = getId()
+        feed.id = getFeedId()
         feeds.add(feed)
         logAll()
     }
@@ -38,12 +44,22 @@ class FeedMemStore: FeedStore {
         }
     }
 
-    override fun deleteOne(feed: FeedModel) {
-        TODO("Not yet implemented")
+    override fun deleteOne(feedId: Long) {
+        val foundFeed = findOne(feedId)
+        if(foundFeed!= null){
+            feeds.remove(foundFeed)
+        }
     }
 
     override fun deleteByPet(petId: Long) {
-        TODO("Not yet implemented")
+        for(i in feeds){
+            if(i.petId == petId){
+                var foundFeed = findOne(i.id!!)
+                if(foundFeed!= null){
+                    feeds.remove(foundFeed)
+                }
+            }
+        }
     }
 
     internal fun logAll() {

@@ -6,6 +6,6 @@ interface ExerciseStore {
     fun findOne(id: Long): ExerciseModel?
     fun create(exercise: ExerciseModel)
     fun update(exercise: ExerciseModel)
-    fun deleteOne(exercise: ExerciseModel)
+    fun deleteOne(exerciseId: Long)
     fun deleteByPet(petId: Long)
 }
