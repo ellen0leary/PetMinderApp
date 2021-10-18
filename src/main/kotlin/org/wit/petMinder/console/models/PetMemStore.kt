@@ -40,4 +40,11 @@ class PetMemStore : PetStore {
     internal fun logAll() {
         pets.forEach { logger.info("${it}") }
     }
+
+    override fun deleteOne(petId: Long) {
+        val foundPet = findOne(petId)
+        if(foundPet!= null){
+            pets.remove(foundPet)
+        }
+    }
 }

@@ -6,6 +6,7 @@ import org.wit.petMinder.console.views.MainView
 class MainController {
     val logger = KotlinLogging.logger {}
     val petController = PetController()
+    val feedController = FeedController()
     val mainView = MainView()
 
     init {
@@ -24,7 +25,11 @@ class MainController {
                 3 -> petController.list()
                 4 -> petController.search()
                 5 -> petController.delete()
-                -99 -> petController.dummyData()
+                6 -> feedController.add()
+                7-> feedController.list()
+                8 -> feedController.search()
+                9 -> feedController.delete()
+                -99 -> allDummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
             }
@@ -34,4 +39,9 @@ class MainController {
     }
 
     fun menu() :Int { return mainView.menu() }
+
+    fun allDummyData(){
+        petController.dummyData()
+        feedController.dummyData()
+    }
 }
