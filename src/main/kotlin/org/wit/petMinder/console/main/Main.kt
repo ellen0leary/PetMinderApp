@@ -1,7 +1,7 @@
 package org.wit.petMinder.console.main
 
-import org.wit.petMinder.console.controllers.PetController
+import org.wit.petMinder.console.controllers.MainController
 
 fun main(args: Array<String>) {
-    PetController().start()
+    MainController().start()
 }
