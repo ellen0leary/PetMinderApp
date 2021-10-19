@@ -2,17 +2,15 @@ package org.wit.petMinder.console.controllers
 
 import mu.KotlinLogging
 import org.wit.petMinder.console.models.PetJSONStore
-import org.wit.petMinder.console.models.PetMemStore
 import org.wit.petMinder.console.models.PetModel
 import org.wit.petMinder.console.views.PetView
-import org.wit.placemark.console.helpers.logger
 
 class PetController {
 
 //    val pets = PetMemStore()
     val pets = PetJSONStore()
     val petView = PetView()
-
+    val logger = KotlinLogging.logger {}
 
     fun add(){
         var aPet = PetModel()
@@ -71,8 +69,8 @@ class PetController {
     }
 
     fun dummyData() {
-        pets.create(PetModel(name = "Fluffy", age = 10, weight=3.5f))
-        pets.create(PetModel(name= "Apollo", age = 4, weight = 2.5f))
-        pets.create(PetModel(name = "Milo", age = 3, weight=4f))
+        pets.create(PetModel(id= 1, name = "Fluffy", age = 10, weight=3.5f))
+        pets.create(PetModel(id=2, name= "Apollo", age = 4, weight = 2.5f))
+        pets.create(PetModel(id=3, name = "Milo", age = 3, weight=4f))
     }
 }

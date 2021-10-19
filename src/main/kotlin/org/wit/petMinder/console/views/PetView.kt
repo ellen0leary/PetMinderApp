@@ -1,11 +1,10 @@
 package org.wit.petMinder.console.views
 
 import org.wit.petMinder.console.models.PetJSONStore
-import org.wit.petMinder.console.models.PetMemStore
 import org.wit.petMinder.console.models.PetModel
 
 class PetView {
-    
+
     fun listPets(pets : PetJSONStore) {
         println("List All Pets")
         println()
@@ -47,7 +46,7 @@ class PetView {
             print("Enter a new Weight for [ "+pet.weight+ "] :")
             tempWeight = readLine()!!.toFloat()
 
-            if (!tempName.isNullOrEmpty() && tempAge != null) {
+            if (!tempName.isNullOrEmpty() && tempAge != null && tempWeight !=null) {
                 pet.name = tempName
                 pet.age = tempAge
                 pet.weight = tempWeight
