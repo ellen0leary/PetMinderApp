@@ -7,6 +7,7 @@ class MainController {
     val logger = KotlinLogging.logger {}
     val petController = PetController()
     val feedController = FeedController()
+    val exerciseController = ExerciseController()
     val mainView = MainView()
 
     init {
@@ -26,9 +27,15 @@ class MainController {
                 4 -> petController.search()
                 5 -> petController.delete()
                 6 -> feedController.add()
-                7-> feedController.list()
-                8 -> feedController.search()
-                9 -> feedController.delete()
+                7 -> feedController.update()
+                8-> feedController.list()
+                9 -> feedController.search()
+                10 -> feedController.delete()
+                11-> exerciseController.add()
+                12 -> exerciseController.update()
+                13 -> exerciseController.list()
+                14 -> exerciseController.search()
+                15 -> exerciseController.delete()
                 -99 -> allDummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
