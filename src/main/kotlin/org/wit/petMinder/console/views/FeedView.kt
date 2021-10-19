@@ -1,8 +1,6 @@
 package org.wit.petMinder.console.views
 
-import org.wit.petMinder.console.models.FeedJSONStore
-import org.wit.petMinder.console.models.FeedMemStore
-import org.wit.petMinder.console.models.FeedModel
+import org.wit.petMinder.console.models.*
 
 class FeedView {
 
@@ -70,4 +68,10 @@ class FeedView {
         return searchId
     }
 
+    fun listByPet(feed: List<FeedModel>) {
+        println("Your Exercise Info is ")
+        feed.forEach {
+            println("$it")
+        }
+    }
 }

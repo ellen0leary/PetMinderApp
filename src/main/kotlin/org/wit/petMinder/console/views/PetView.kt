@@ -67,4 +67,8 @@ class PetView {
             -9
         return searchId
     }
+
+    fun listOne(pet: PetModel?) {
+        println("Your Pet Info is $pet")
+    }
 }

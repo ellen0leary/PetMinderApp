@@ -2,6 +2,7 @@ package org.wit.petMinder.console.views
 
 import org.wit.petMinder.console.models.ExerciseJSONStore
 import org.wit.petMinder.console.models.ExerciseModel
+import org.wit.petMinder.console.models.FeedModel
 
 class ExerciseView {
 
@@ -69,5 +70,12 @@ class ExerciseView {
         else
             -9
         return searchId
+    }
+
+    fun listByPet(exercise: List<ExerciseModel>) {
+        println("Your Feed Info is ")
+        exercise.forEach {
+            println("$it")
+        }
     }
 }

@@ -21,6 +21,10 @@ class PetController {
             logger.info{"Pet Not Added"}
     }
 
+    fun listByPet(id: Long){
+        val foundPet = pets.findOne(id)
+        petView.listOne(foundPet)
+    }
     fun list() {
         petView.listPets(pets)
     }
@@ -48,7 +52,12 @@ class PetController {
         petView.showPet(aPet)
     }
 
-
+    fun getPetId() : Long{
+        val aPet = search(petView.getId())!!
+        if(aPet!=null)
+            return aPet.id
+        return -1
+    }
     fun search(id: Long) : PetModel? {
         var foundPet = pets.findOne(id)
         return foundPet

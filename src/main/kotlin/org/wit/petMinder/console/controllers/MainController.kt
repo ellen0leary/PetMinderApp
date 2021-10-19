@@ -36,6 +36,9 @@ class MainController {
                 13 -> exerciseController.list()
                 14 -> exerciseController.search()
                 15 -> exerciseController.delete()
+                16 -> allPetData()
+                17 -> petsExercise()
+                18 -> petsFeeding()
                 -99 -> allDummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
@@ -50,5 +53,28 @@ class MainController {
     fun allDummyData(){
         petController.dummyData()
         feedController.dummyData()
+    }
+
+    fun allPetData() {
+        val id: Long = petController.getPetId()
+        if(!id.equals(-1)){
+            petController.listByPet(id)
+            exerciseController.listByPet(id)
+            feedController.listByPet(id)
+        }
+    }
+
+    fun petsExercise(){
+        val id: Long = petController.getPetId()
+        if(!id.equals(-1)){
+            exerciseController.listByPet(id)
+        }
+    }
+
+    fun petsFeeding(){
+        val id: Long = petController.getPetId()
+        if(!id.equals(-1)){
+            feedController.listByPet(id)
+        }
     }
 }

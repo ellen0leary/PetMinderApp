@@ -66,6 +66,11 @@ class ExerciseController {
         }
     }
 
+    fun listByPet(id: Long){
+        val foundExercise = exercises.findByPet(id)
+        exerciseView.listByPet(foundExercise)
+    }
+
     fun dummyData(){
         //add later
     }

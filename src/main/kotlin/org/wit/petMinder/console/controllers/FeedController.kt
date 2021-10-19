@@ -66,6 +66,10 @@ class FeedController {
             println("Placemark Not Deleted...")
     }
 
+    fun listByPet(id: Long){
+        val foundFeed = feeds.findByPet(id)
+        feedView.listByPet(foundFeed)
+    }
     fun dummyData(){
         //add later
     }
