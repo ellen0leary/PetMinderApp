@@ -11,7 +11,7 @@ import java.util.ArrayList
 
 private val logger = KotlinLogging.logger {}
 
-val JSON_FILE_EXE = "pets.json"
+val JSON_FILE_EXE = "exercises.json"
 val gsonBuilder_exe = GsonBuilder().setPrettyPrinting().create()
 val listType_exe = object : TypeToken<ArrayList<ExerciseModel>>() {}.type
 

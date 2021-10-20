@@ -1,11 +1,12 @@
 package org.wit.petMinder.console.views
 
+import org.wit.petMinder.console.controllers.PetController
 import org.wit.petMinder.console.models.ExerciseJSONStore
 import org.wit.petMinder.console.models.ExerciseModel
 import org.wit.petMinder.console.models.FeedModel
 
 class ExerciseView {
-
+    val petController = PetController()
     fun listExercise(exercises: ExerciseJSONStore){
         println("List All Exercises")
         println()
@@ -26,7 +27,8 @@ class ExerciseView {
         exercise.petId = -1
         exercise.length = -1
 
-        print("Enter a new pet")
+        petController.list()
+        print("Enter an Pet ID")
         exercise.petId = readLine()!!.toLong()
         print("Enter a new name: ")
         exercise.name = readLine()!!
@@ -42,7 +44,8 @@ class ExerciseView {
         var tempLength: Int?
 
         if(exercise!= null){
-            print("Enter a new pet")
+            petController.list()
+            print("Enter an Pet ID")
             tempId = readLine()!!.toLong()
             print("Enter a new name: ")
             tempName = readLine()!!
@@ -73,9 +76,13 @@ class ExerciseView {
     }
 
     fun listByPet(exercise: List<ExerciseModel>) {
-        println("Your Feed Info is ")
-        exercise.forEach {
-            println("$it")
+        if(exercise.isNotEmpty()) {
+            println("Your Exercise Info is ")
+            exercise.forEach {
+                println("$it")
+            }
+        } else {
+            println("There are no exercises")
         }
     }
 }

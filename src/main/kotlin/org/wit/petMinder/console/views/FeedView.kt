@@ -1,9 +1,10 @@
 package org.wit.petMinder.console.views
 
+import org.wit.petMinder.console.controllers.PetController
 import org.wit.petMinder.console.models.*
 
 class FeedView {
-
+    val petController = PetController()
     fun listAllFeed(feeds: FeedJSONStore){
         println("List All Feeds")
         println()
@@ -23,7 +24,8 @@ class FeedView {
         feed.weigth = -1f
         feed.petId = -1L
         println()
-        print("Find a pet: ")
+        petController.list()
+        print("Enter an Pet ID")
         feed.petId = readLine()!!.toLong()
         print("Enter a time: ")
         feed.time = readLine()!!
@@ -39,7 +41,8 @@ class FeedView {
         var tempWeight :  Float?
 
         if(feed!= null){
-            print("Find a new pet: ")
+            petController.list()
+            print("Enter an Pet ID")
             tempId = readLine()!!.toLong()
             print("Find a new time for ["+feed.time+"]: ")
             tempTime = readLine()!!
@@ -69,9 +72,9 @@ class FeedView {
     }
 
     fun listByPet(feed: List<FeedModel>) {
-        println("Your Exercise Info is ")
+        println("Your Feed Info is ")
         feed.forEach {
-            println("$it")
+            println("   $it")
         }
     }
 }

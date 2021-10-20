@@ -11,7 +11,7 @@ import java.util.ArrayList
 
 private val logger = KotlinLogging.logger {}
 
-val JSON_FILE_FEED = "pets.json"
+val JSON_FILE_FEED = "feed.json"
 val gsonBuilder_feed = GsonBuilder().setPrettyPrinting().create()
 val listType_feed = object : TypeToken<ArrayList<FeedModel>>() {}.type
 

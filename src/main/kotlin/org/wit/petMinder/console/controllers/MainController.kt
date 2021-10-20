@@ -53,6 +53,7 @@ class MainController {
     fun allDummyData(){
         petController.dummyData()
         feedController.dummyData()
+        exerciseController.dummyData()
     }
 
     fun allPetData() {
