@@ -1,5 +1,6 @@
 package org.wit.petMinder.console.models
 
+
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -43,7 +44,7 @@ class ExerciseJSONStore: ExerciseStore {
     }
 
     override fun create(exercise: ExerciseModel) {
-        exercise.id = getExerciseId()
+        exercise.id = generateRandomId()
         exercises.add(exercise)
         logAll()
         serialize()
@@ -89,7 +90,7 @@ class ExerciseJSONStore: ExerciseStore {
     }
 
     private fun deserialize() {
-        val jsonString = read(JSON_FILE)
+        val jsonString = read(JSON_FILE_EXE)
         exercises = Gson().fromJson(jsonString, listType_exe)
     }
 }

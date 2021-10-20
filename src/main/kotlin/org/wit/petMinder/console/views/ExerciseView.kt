@@ -7,6 +7,7 @@ import org.wit.petMinder.console.models.FeedModel
 
 class ExerciseView {
     val petController = PetController()
+
     fun listExercise(exercises: ExerciseJSONStore){
         println("List All Exercises")
         println()
@@ -76,6 +77,7 @@ class ExerciseView {
     }
 
     fun listByPet(exercise: List<ExerciseModel>) {
+        println(exercise.size)
         if(exercise.isNotEmpty()) {
             println("Your Exercise Info is ")
             exercise.forEach {

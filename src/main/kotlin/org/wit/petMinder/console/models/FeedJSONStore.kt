@@ -88,7 +88,7 @@ class FeedJSONStore: FeedStore {
     }
 
     private fun deserialize() {
-        val jsonString = read(JSON_FILE)
+        val jsonString = read(JSON_FILE_FEED)
         feeds = Gson().fromJson(jsonString, listType_feed)
     }
 }

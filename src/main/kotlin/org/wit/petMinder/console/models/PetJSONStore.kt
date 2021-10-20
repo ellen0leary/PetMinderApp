@@ -37,7 +37,7 @@ class PetJSONStore : PetStore {
     }
 
     override fun create(pet: PetModel) {
-        pet.id = getId()
+        pet.id = generateRandomId()
         pets.add(pet)
         logAll()
         serialize()
