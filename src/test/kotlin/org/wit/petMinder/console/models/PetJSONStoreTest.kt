@@ -3,7 +3,6 @@ package org.wit.petMinder.console.models
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import java.util.*
 import kotlin.random.Random
 
 class PetJSONStoreTest {
