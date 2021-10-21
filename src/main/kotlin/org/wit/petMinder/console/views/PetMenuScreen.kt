@@ -44,13 +44,14 @@ class PetMenuScreen : View("Pet Menu") {
                 }
             }
             text("")
-            button("Back") {
+            button("Exit") {
 
                 isDefaultButton = true
                 useMaxWidth = true
                 action {
                     runAsyncWithProgress {
-                        petUIController.closeMenu()
+                        Platform.exit()
+                        System.exit(0)
                     }
                 }
             }

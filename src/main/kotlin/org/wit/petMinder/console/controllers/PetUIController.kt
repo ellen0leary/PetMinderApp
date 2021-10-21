@@ -14,7 +14,7 @@ class PetUIController : Controller() {
     val logger = KotlinLogging.logger {}
 
     fun add(name:String, age: String, weight: String) {
-        var newPet = PetModel(name= name, age=age.toInt(), weight = weight.toFloat())
+        val newPet = PetModel(name= name, age=age.toInt(), weight = weight.toFloat())
         pets.create(newPet)
     }
 
@@ -56,12 +56,6 @@ class PetUIController : Controller() {
     fun closeDelete(){
         runLater {
             find(PetDeleteScreen::class).replaceWith(PetMenuScreen::class,  sizeToScene = true, centerOnScreen = true)
-        }
-    }
-
-    fun closeMenu() {
-        runLater {
-            find(PetMenuScreen::class).replaceWith(MenuScreen::class,  sizeToScene = true, centerOnScreen = true)
         }
     }
 }

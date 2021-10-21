@@ -1,6 +1,6 @@
 package org.wit.petMinder.console.main
 
-import org.wit.petMinder.console.views.MenuScreen
+import org.wit.petMinder.console.views.PetMenuScreen
 import tornadofx.App
 
-class MainApp : App(MenuScreen::class)
+class MainApp : App(PetMenuScreen::class)
