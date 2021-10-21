@@ -4,10 +4,7 @@ import javafx.beans.property.SimpleIntegerProperty
 import mu.KotlinLogging
 import org.wit.petMinder.console.models.PetJSONStore
 import org.wit.petMinder.console.models.PetModel
-import org.wit.petMinder.console.views.PetAddScreen
-import org.wit.petMinder.console.views.PetDeleteScreen
-import org.wit.petMinder.console.views.PetListScreen
-import org.wit.petMinder.console.views.PetMenuScreen
+import org.wit.petMinder.console.views.*
 import tornadofx.*
 
 
@@ -59,6 +56,12 @@ class PetUIController : Controller() {
     fun closeDelete(){
         runLater {
             find(PetDeleteScreen::class).replaceWith(PetMenuScreen::class,  sizeToScene = true, centerOnScreen = true)
+        }
+    }
+
+    fun closeMenu() {
+        runLater {
+            find(PetMenuScreen::class).replaceWith(MenuScreen::class,  sizeToScene = true, centerOnScreen = true)
         }
     }
 }

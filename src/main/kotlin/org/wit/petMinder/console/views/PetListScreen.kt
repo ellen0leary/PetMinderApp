@@ -4,7 +4,7 @@ import org.wit.petMinder.console.controllers.PetUIController
 import org.wit.petMinder.console.models.PetModel
 import tornadofx.*
 
-class PetListScreen : View("My View") {
+class PetListScreen : View("Pet List") {
     val petUIController: PetUIController by inject()
     val tableContent = petUIController.pets.findAll()
     val data = tableContent.observable()

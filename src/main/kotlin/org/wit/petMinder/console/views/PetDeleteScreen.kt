@@ -6,8 +6,10 @@ import javafx.geometry.Orientation
 import org.wit.petMinder.console.controllers.PetUIController
 import org.wit.petMinder.console.models.PetModel
 import tornadofx.*
+import tornadofx.Stylesheet.Companion.fieldset
+import tornadofx.Stylesheet.Companion.form
 
-class PetDeleteScreen : View("My View") {
+class PetDeleteScreen : View("Pet Delete") {
     val model = ViewModel()
     val petUIController: PetUIController by inject()
     val tableContent = petUIController.pets.findAll()

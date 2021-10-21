@@ -6,7 +6,7 @@ import javafx.geometry.Orientation
 import org.wit.petMinder.console.controllers.PetUIController
 import tornadofx.*
 
-class PetAddScreen : View("My View") {
+class PetAddScreen : View("Pet Add") {
     val model = ViewModel()
     val pet: PetUIController by inject()
     val _name = model.bind { SimpleStringProperty() }

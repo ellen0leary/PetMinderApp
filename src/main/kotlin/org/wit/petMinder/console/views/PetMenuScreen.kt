@@ -5,7 +5,7 @@ import javafx.geometry.Orientation
 import org.wit.petMinder.console.controllers.PetUIController
 import tornadofx.*
 
-class PetMenuScreen : View("My View") {
+class PetMenuScreen : View("Pet Menu") {
     val petUIController = PetUIController()
     override val root = form {
         setPrefSize(400.0, 200.0)
@@ -18,6 +18,17 @@ class PetMenuScreen : View("My View") {
                 action {
                     runAsyncWithProgress {
                         petUIController.openAdd()
+                    }
+                }
+            }
+            text("")
+            button("List Pet") {
+
+                isDefaultButton = true
+                useMaxWidth = true
+                action {
+                    runAsyncWithProgress {
+                        petUIController.openList()
                     }
                 }
             }
@@ -39,7 +50,7 @@ class PetMenuScreen : View("My View") {
                 useMaxWidth = true
                 action {
                     runAsyncWithProgress {
-//                        petUIController.
+                        petUIController.closeMenu()
                     }
                 }
             }
