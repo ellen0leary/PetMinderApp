@@ -1,7 +1,6 @@
 package org.wit.petMinder.console.views
 
 class MainView {
-
     val TEXT_RESET = "\u001B[0m"
     val PURPLE = "\u001b[1;35m"
     val CYAN = "\u001b[0;36m"
