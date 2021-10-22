@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import mu.KotlinLogging
-import org.wit.placemark.console.helpers.*
+import org.wit.petMinder.console.helpers.*
 import java.util.*
 
 private val logger = KotlinLogging.logger {}

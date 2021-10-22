@@ -45,7 +45,7 @@ class MainController {
             }
             println()
         } while (input != -1)
-        logger.info { "Shutting Down Placemark Console App" }
+        logger.info { "Shutting Down PetMinder Console App" }
     }
 
     fun menu() :Int { return mainView.menu() }

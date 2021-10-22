@@ -41,7 +41,7 @@ class PetView {
         if (pet != null) {
             print("Enter a new Title for [ " + pet.name + " ] : ")
             tempName = readLine()!!
-            print("Enter a new Description for [ " + pet.age + " ] : ")
+            print("Enter a new Age for [ " + pet.age + " ] : ")
             tempAge = readLine()!!.toIntOrNull()
             print("Enter a new Weight for [ "+pet.weight+ "] :")
             tempWeight = readLine()!!.toFloat()

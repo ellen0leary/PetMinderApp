@@ -28,5 +28,11 @@
     "petId": 3,
     "time": "Afternoon",
     "weigth": 3.2
+  },
+  {
+    "id": 0,
+    "petId": 3017885227553410275,
+    "time": "4",
+    "weigth": 4.5
   }
 ]

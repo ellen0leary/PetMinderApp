@@ -59,11 +59,11 @@ class FeedController {
 
         if(aFeed != null) {
             feeds.deleteOne(aFeed.id)
-            println("Placemark Deleted...")
+            println("Feed Deleted...")
             feedView.listAllFeed(feeds)
         }
         else
-            println("Placemark Not Deleted...")
+            println("Feed Not Deleted...")
     }
 
     fun listByPet(id: Long){

@@ -70,11 +70,11 @@ class PetController {
 
         if(aPet != null) {
             pets.deleteOne(aPet.id)
-            println("Placemark Deleted...")
+            println("Pet Deleted...")
             petView.listPets(pets)
         }
         else
-            println("Placemark Not Deleted...")
+            println("Pet Not Deleted...")
     }
 
     fun dummyData() {
